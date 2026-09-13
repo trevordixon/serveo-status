@@ -1,31 +1,36 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+owner: trevordixon
+repo: serveo-status
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
+  - name: Website
+    url: https://serveo.net/
+  - name: Console API
+    url: https://console.serveo.net/api/health
+    __dangerous__body_down_if_text_missing: '"code":200'
+  - name: SSH tunnels
+    check: tcp-ping
+    url: serveo.net
+    port: 22
+  - name: SSH over HTTPS
+    check: tcp-ping
+    url: serveo.net
+    port: 443
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  baseUrl: /serveo-status
+  logoUrl: https://serveo.net/favicon.svg
+  name: Serveo Status
+  introTitle: "Serveo service status"
+  introMessage: Current availability and incident history for Serveo's public tunneling services.
   navbar:
     - title: Status
-      href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
+      href: /serveo-status
+    - title: Serveo
+      href: https://serveo.net/
+    - title: Documentation
+      href: https://serveo.net/docs/
+
+skipDeleteIssues: true
 
 # Upptime also supports notifications, assigning issues, and more
 # See https://upptime.js.org/docs/configuration
